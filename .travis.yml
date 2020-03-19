@@ -1,30 +1,44 @@
-install: 
-- npm install
+language: node_js             # 指定语言环境
+node_js: '12.16.1'              # 指定 NodeJS 版本
+cache: npm                    # 指定 npm 缓存方案，会缓存 $HOME/.npm 或 node_modules 文件夹
 
-script: 
-- hexo g
+# dist: trusty                  # 指定系统版本，trusty 是指 Ubuntu 14.04 发行版的名称
+# sudo: required                # 是否需要 sudo 权限
 
+branches:                     # 指定要构建的分支
+  only:                       # only 表示只构建以下分支
+  - master
+
+before_install:               # install 阶段之前执行
+  - npm install -g hexo-cli   # 全局安装 Hexo 命令行工具
+
+install:                      # 在安装项目环境阶段需要运行的命令，一条一行，类似的还有 before_install
+  - npm install               # 安装 package.json 中的依赖
+
+script:                       # 在构建阶段需要运行的命令，一条一行，类似的还有 before_script、after_script
+  - hexo clean
+  - hexo generate             # Hexo 常规命令，执行清理和生成
 after_script: 
-- cd ./public 
-- git init 
+# - cd ./public 
+# - git init 
 - git config user.name "codingbylch"
 - git config user.email "ilinf@foxmail.com" 
-- git add . 
-- git commit -m "Update docs with TRAVIS-CI."
-- git push --force --quiet "https://${GIT_REPO_TOKEN}@${GH_REF}" master:master
-
+# - git add . 
+- git commit -m "Update docs by TRAVIS-CI."
+- sed -i'' "s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
+- hexo deploy > /dev/null   # 通过 Hexo 的 deploy 命令部署博客
 # safelist
 branches: 
   only: 
     - master 
 
-language: node_js
-node_js: stable
+# language: node_js
+# node_js: stable
 
 # git:
 #   depth: 1
 
-env: 
-  global: 
-    # 使用https, 若使用ssh会出错
-    - GH_REF: github.com/codingbylch/codingbylch.github.io.git
+# env: 
+#   global: 
+#     # 使用https, 若使用ssh会出错
+#     - GH_REF: github.com/codingbylch/codingbylch.github.io.git
