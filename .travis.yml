@@ -30,7 +30,7 @@ after_script:
   # - cd ./public
   - git config -–global user.name "codingbylch"
   - git config --global user.email "ilinf@foxmail.com"
-  - sed -i'' "s~git@github.com:~https://${GITHUB_REPO_TOKEN}@github.com/~" _config.yml
+  - sed -i'' "s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
   - hexo deploy > /dev/null   # 通过 Hexo 的 deploy 命令部署博客
   # - git add .
   # - git commit -m "Myblog-CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
