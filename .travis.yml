@@ -40,8 +40,8 @@ branches:
 env:
  global:
    - GH_REF: github.com/codingbylch/codingbylch.github.io.git
-notifications:
-  email:
-    - ilinf@foxmail.com
-  on_success: change
-  on_failure: always
+# notifications:
+#   email:
+#     - ilinf@foxmail.com
+#   on_success: change
+#   on_failure: always
