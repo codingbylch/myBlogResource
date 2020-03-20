@@ -7,6 +7,7 @@ branches:                     # 指定要构建的分支
 
 before_install:               # install 阶段之前执行
   - npm install -g hexo-cli   # 全局安装 Hexo 命令行工具
+  - export TZ='Asia/Shanghai'  # 设置时区
 
 install:                      # 在安装项目环境阶段需要运行的命令，一条一行，类似的还有 before_install
   - npm install               # 安装 package.json 中的依赖
@@ -17,7 +18,6 @@ script:                       # 在构建阶段需要运行的命令，一条一
 after_script: 
 - git config user.name "codingbylch"
 - git config user.email "ilinf@foxmail.com" 
-# - git add . 
 - git commit -m "Update docs by TRAVIS-CI."
 - sed -i'' "s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
 - hexo deploy > /dev/null   # 通过 Hexo 的 deploy 命令部署博客
