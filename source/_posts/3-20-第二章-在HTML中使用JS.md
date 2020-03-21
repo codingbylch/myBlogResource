@@ -1,8 +1,9 @@
 ---
 title: 第二章 - 在HTML中使用JS
 date: 2020-03-20 18:43:28
-tags: JS
-categories: [前端, JS高级程序设计]
+tags: JS高级程序设计
+categories: 前端
+toc: true
 ---
 本章内容 
 - 使用\script元素 
