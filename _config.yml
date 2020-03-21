@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 学无止境
-subtitle: ''
+title: 心情暴躁的一天
+subtitle: '=.='
 description: '个人学习记录博客, 从这里开始吧'
-keywords:
+keywords: 前端,算法,编程基础能力的记录
 author: JoyRan
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://lchblog.xyz
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
