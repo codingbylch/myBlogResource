@@ -1,3 +1,7 @@
+---
+comments: false
+---
+
 <h1>关于</h1>
 
 <p><i class="fa fa-user-circle"></i> Nickname: <a href="https://lchblog.xyz">JoyRan</a></p>
