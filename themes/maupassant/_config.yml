@@ -65,31 +65,29 @@ menu:
   - page: archive
     directory: archives/
     icon: fa-archive
+  - page: 标签
+    directory: tags/
+    icon: fa-tags
   - page: about
     directory: about/
     icon: fa-user
-  - page: rss
-    directory: atom.xml
-    icon: fa-rss
   - page: 演示
     directory: demoShow/
     icon: fa-reddit-alien
 
+
+
 widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.
   - search
   - category
-  - tag
   - recent_posts
   - recent_comments
   - links
 
 links:
-  - title: Github
-    url: https://github.com/codingbylch
-  - title: Leetcode
-    url: https://leetcode-cn.com/u/codingbylch/
-  - title: Cnblogs
-    url: https://www.cnblogs.com/codingbylch/
+  - title: Chochi
+    url: https://chochi1st.github.io
+
 
 timeline:
   - num: 1
