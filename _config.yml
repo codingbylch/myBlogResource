@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 有点无精打采
-subtitle: '=.='
+title: 虽然焦虑但也要干劲满满
+subtitle: ';)'
 description: '个人学习记录博客, 从这里开始吧'
 keywords: 前端,算法,编程基础能力的记录
 author: JoyRan
@@ -32,7 +32,7 @@ i18n_dir: :lang
 skip_render: demoShow/**
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
