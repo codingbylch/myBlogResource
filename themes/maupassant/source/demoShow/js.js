@@ -56,7 +56,6 @@ function addTodoList() {
             e.target.parentNode.parentNode.removeChild(e.target.parentNode);
         })
         list.appendChild(delButton);
-
         inputText.value = '';
         inputText.focus();
     }
