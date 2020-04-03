@@ -1,12 +1,16 @@
 ---
-title: Ajax与Comet
+title: Ajax的一些基本操作
 tags: JS
 categories: 前端
 toc: true
 date: 2020-04-01 16:21:49
 ---
+简介：XML的get、post实现，原生ajax的实现、Fetch操作。
+<!-- more -->
 
 ### XHLHttpRequest对象
+基本的Ajax请求写法：
+- get:
 ```js
 // 基本的Ajax请求写法：
 let url = 'https://www.baidu.com'
@@ -25,8 +29,10 @@ function getSomething(url) {
     };
     request.send(); // 开始发送请求
 }
+```
 
-// post
+- post
+```js
 function postSomething(url) {
     //创建异步对象  
     var xhr = new XMLHttpRequest();
@@ -43,8 +49,29 @@ function postSomething(url) {
         }
     };
 }
-
 ```
+
+- FormData
+XMLHttpRequest 2级定义了FormData类型。FormData 为序列化表单以及创建与表单格式相同的数据（用于通过 XHR 传输）提供了便利。
+```js
+var data = new FormData(); 
+data.append("name", "Nicholas");
+var xhr = createXHR();
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            alert(xhr.responseText);
+        } else {
+            alert("Request was unsuccessful: " + xhr.status);
+        }
+    }
+};
+
+xhr.open("post", "postexample.php", true);
+var form = document.getElementById("user-info");
+xhr.send(new FormData(form));
+```
+
 原生ajax请求实现：
 ```js
 //原生Ajax请求实现：

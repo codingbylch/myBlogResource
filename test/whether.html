@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简单的天气查询</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <span>城市名称: </span>
+    <input type="text" name="city_name" id="city_name">
+    <button id="search">查询</button>
+    <div id="result"></div>
+
+</body>
+<script>
+    let script = document.createElement('script');
+    let city_name = document.querySelector('#city_name');
+    let search = document.querySelector('#search');
+    let result = document.querySelector('#result');
+
+    search.addEventListener('click', fuckYou2);
+
+    function fuckYou() {
+        console.log('dddd');
+        let url = 'https://way.jd.com/he/freeweather?city=' + city_name.value
+        let APPKEY = '0d959196d77c13c86f96317bd886740e'
+        url += '&appkey=' + APPKEY + '&callback=getWeatcher';
+        script.src = url;
+        document.body.insertBefore(script, document.body.lastChild);
+
+        function getWeatcher(response) {
+            console.log('aaaa');
+            console.log(response);
+        }
+    }
+
+    function fuckYou2() {
+        console.log('dddd');
+        let url = 'https://way.jd.com/he/freeweather?city=' + city_name.value
+        let APPKEY = '0d959196d77c13c86f96317bd886740e'
+        url += '&appkey=' + APPKEY;
+        // script.src = url;
+        // document.body.insertBefore(script, document.body.lastChild);
+        let settings = {
+            // jsonp: 'getWeatcher'
+        }
+        let jqxhr = $.getJSON(url,settings);
+        console.log(jqxhr);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function success(data) {
+        let weather = document.getElementById('weatherInfo');
+        let weatherInfo = JSON.parse(data);
+        if (weatherInfo.code === 200) {
+            weather.innerHTML = '查询成功' + '<br>' +
+                '当前城市：' + weatherInfo.data.city + '<br>' +
+                '当前温度：' + weatherInfo.data.wendu + '<br>' +
+                '气温：' + '最' + weatherInfo.data.forecast[0].high + '，最' + weatherInfo.data.forecast[0].low + '<br>' +
+                '天气：' + weatherInfo.data.forecast[0].type + '<br>' +
+                '风向：' + weatherInfo.data.forecast[0].fengxiang + weatherInfo.data.forecast[0].fengli + '<br>' +
+                '注意：' + weatherInfo.data.ganmao
+        } else {
+            weather.innerText = weatherInfo.msg;
+        }
+    }
+</script>
+
+</html>
