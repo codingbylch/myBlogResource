@@ -17,3 +17,5 @@ Point.prototype.fuck = function () {
 // 1.主要结构 2.与ES5都有prototype 3.必须使用new调用 4.内部默认严格模式
 // 5.不存在提升 6.类的方法内部如果含有this，它默认指向类的实例
 // 
+
+
